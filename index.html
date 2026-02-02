@@ -1,1 +1,99 @@
-Let's go party
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+  }
+
+  .box {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    margin-bottom: 25px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  #yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #no {
+    background: #ccc;
+    color: black;
+    position: absolute;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button id="yes" onclick="yesClicked()">Yes 💖</button>
+</div>
+
+<button id="no">No 🙃</button>
+
+<script>
+  const noBtn = document.getElementById("no");
+
+  function moveNoButton() {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  // Move when finger gets close (touch)
+  noBtn.addEventListener("touchstart", moveNoButton);
+  noBtn.addEventListener("mouseover", moveNoButton);
+
+  // Initial random position
+  moveNoButton();
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        font-family:Arial;
+        background:linear-gradient(135deg,#ff758c,#ff7eb3);
+        color:white;
+        text-align:center;
+        font-size:28px;
+      ">
+        She said YES 💖🥰<br><br>
+        Best Valentine ever 💘
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>
